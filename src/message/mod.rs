@@ -169,8 +169,9 @@ impl<'a> From<&'a log::Record<'a>> for Message<'a> {
     /// Create a `Message` from given `log::LogRecord` including all metadata
     fn from(record: &'a log::Record) -> Message<'a> {
         // Create message with given text and level
-        let short_message = format!("{}", record.args());
-        let short_message = util::hide_passwords(short_message);
+//        let short_message = format!("{}", record.args());
+//        let short_message = util::hide_passwords(short_message);
+        let short_message = "TEST";
 
         let mut msg = Message::new_with_level(
             short_message,
