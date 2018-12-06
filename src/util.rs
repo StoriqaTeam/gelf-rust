@@ -8,5 +8,5 @@ pub fn pid() -> i32 {
 
 pub fn hide_passwords(s: String) -> String {
     let re = Regex::new("password\\s*:\\s*Some\\(\".*\"\\)").unwrap();
-    re.replace(text, "password: Some(\"****\")")
+    re.replace(s, "password: Some(\"****\")")
 }
