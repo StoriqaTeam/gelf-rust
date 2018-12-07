@@ -9,8 +9,8 @@ pub fn pid() -> i32 {
 pub fn hide_credentials<'a>(s: String) -> String {
     let mut res = s;
     let patterns = vec![
-        (Regex::new("password\\s*:\\s*Some\\s*\\(\\s*\"[^\"]*\"\\s*\\)").unwrap(), "password: Some(\"****\")"),
-        (Regex::new("(?P<n>\"[a-zA-Z0-9_ ]*[pP]assword[a-zA-Z0-9_ ]*\")\\s*:\\s*\"[^\"]*\"").unwrap(), "$n: \"****\"")
+        (Regex::new("(?i)password\\s*:\\s*Some\\s*\\(\\s*\"([^\"]|(\\\\\"))*\"\\s*\\)").unwrap(), "password: Some(\"****\")"),
+        (Regex::new("(?P<n>\"[a-zA-Z0-9_ ]*(?i)password[a-zA-Z0-9_ ]*\")\\s*:\\s*\"([^\"]|(\\\\\"))*\"").unwrap(), "$n: \"****\"")
     ];
 
     for (pattern, replace) in patterns {
