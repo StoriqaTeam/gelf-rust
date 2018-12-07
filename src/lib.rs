@@ -99,6 +99,7 @@ extern crate hostname;
 extern crate libc;
 extern crate libflate;
 extern crate rand;
+extern crate regex;
 extern crate serde;
 
 #[cfg_attr(test, macro_use)]
